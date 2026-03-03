@@ -88,15 +88,21 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             backdrop-filter: blur(20px);
             background: rgba(5, 5, 16, 0.8);
             border-bottom: 1px solid rgba(0, 191, 255, 0.1);
             transition: all 0.3s ease;
         }
         
+        @media (min-width: 768px) {
+            .navbar {
+                padding: 1rem 2rem;
+            }
+        }
+        
         .navbar.scrolled {
-            padding: 0.5rem 2rem;
+            padding: 0.5rem 1.5rem;
             background: rgba(5, 5, 16, 0.95);
         }
         
@@ -107,6 +113,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             padding: 0.5rem 0;
+            font-size: 0.95rem;
         }
         
         .nav-link::after {
@@ -135,34 +142,56 @@
             gap: 0.5rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
+        @media (min-width: 768px) {
+            .logo {
+                font-size: 1.25rem;
+            }
+        }
+        
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
         }
         
         /* Buttons */
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 0.875rem 2rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .btn-primary {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
         }
         
         .btn-primary::before {
@@ -188,16 +217,25 @@
         .btn-secondary {
             background: transparent;
             color: var(--primary);
-            padding: 0.875rem 2rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             transition: all 0.3s ease;
             border: 1px solid var(--primary);
             cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .btn-secondary {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
         }
         
         .btn-secondary:hover {
@@ -211,8 +249,15 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(0, 191, 255, 0.1);
             border-radius: 16px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             transition: all 0.4s ease;
+            height: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .glass-card {
+                padding: 1.5rem;
+            }
         }
         
         .glass-card:hover {
@@ -241,10 +286,12 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
         
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 6vw, 4.5rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -274,6 +321,19 @@
             max-width: 700px;
             opacity: 0.8;
             animation: float 6s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Hide brain on mobile to clear up space */
+        @media (max-width: 768px) {
+            .ai-brain {
+                opacity: 0.1;
+                width: 100%;
+                right: 0;
+                left: 0;
+                margin: auto;
+            }
         }
         
         @keyframes float {
@@ -290,12 +350,19 @@
         /* Glow Effect */
         .glow {
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             filter: blur(100px);
             opacity: 0.3;
             pointer-events: none;
+        }
+        
+        @media (min-width: 768px) {
+            .glow {
+                width: 400px;
+                height: 400px;
+            }
         }
         
         .glow-blue {
@@ -311,6 +378,8 @@
             position: relative;
             overflow: hidden;
             border-radius: 16px;
+            display: flex;
+            flex-direction: column;
         }
         
         .video-thumbnail {
@@ -329,14 +398,21 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: rgba(0, 191, 255, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .play-overlay {
+                width: 60px;
+                height: 60px;
+            }
         }
         
         .video-card:hover .play-overlay {
@@ -353,22 +429,30 @@
         }
         
         .tool-logo {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 12px;
             background: linear-gradient(135deg, rgba(0, 191, 255, 0.2), rgba(138, 43, 226, 0.2));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             flex-shrink: 0;
         }
         
+        @media (min-width: 768px) {
+            .tool-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+        
         /* Feature Card */
         .feature-icon {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             border-radius: 16px;
             background: linear-gradient(135deg, rgba(0, 191, 255, 0.15), rgba(138, 43, 226, 0.15));
             display: flex;
@@ -377,13 +461,26 @@
             margin-bottom: 1rem;
         }
         
+        @media (min-width: 768px) {
+            .feature-icon {
+                width: 64px;
+                height: 64px;
+            }
+        }
+        
         /* News Card */
         .news-image {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .news-image {
+                height: 200px;
+            }
         }
         
         /* Category Badge */
@@ -423,8 +520,8 @@
         
         /* Social Links */
         .social-link {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
             background: var(--bg-card);
             border: 1px solid rgba(0, 191, 255, 0.1);
@@ -432,6 +529,13 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .social-link {
+                width: 48px;
+                height: 48px;
+            }
         }
         
         .social-link:hover {
@@ -464,14 +568,16 @@
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 70px;
+            top: 0;
             left: 0;
             right: 0;
+            bottom: 0;
             background: rgba(5, 5, 16, 0.98);
             backdrop-filter: blur(20px);
-            padding: 1rem;
+            padding: 6rem 2rem 2rem;
             z-index: 999;
             border-bottom: 1px solid rgba(0, 191, 255, 0.1);
+            overflow-y: auto;
         }
         
         .mobile-menu.show {
@@ -479,11 +585,12 @@
         }
         
         .hamburger {
-            display: none;
+            display: flex;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
             padding: 5px;
+            z-index: 1001;
         }
         
         .hamburger span {
@@ -493,18 +600,31 @@
             transition: all 0.3s ease;
         }
         
-        @media (max-width: 768px) {
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        @media (min-width: 769px) {
             .hamburger {
-                display: flex;
-            }
-            
-            .nav-links-desktop {
                 display: none;
             }
             
-            .ai-brain {
-                opacity: 0.3;
-                right: -30%;
+            .nav-links-desktop {
+                display: flex !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links-desktop {
+                display: none;
             }
         }
         
@@ -545,8 +665,14 @@
         .newsletter-section {
             background: linear-gradient(135deg, rgba(0, 191, 255, 0.05), rgba(138, 43, 226, 0.05));
             border-radius: 24px;
-            padding: 3rem;
+            padding: 2rem 1.5rem;
             border: 1px solid rgba(0, 191, 255, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .newsletter-section {
+                padding: 3rem;
+            }
         }
     </style>
 </head>
@@ -582,7 +708,7 @@
                         </linearGradient>
                     </defs>
                 </svg>
-                NeuroNova Labs
+                <span>NeuroNova Labs</span>
             </a>
             
             <div class="nav-links-desktop flex items-center gap-8">
@@ -610,14 +736,16 @@
     
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <div class="flex flex-col gap-4">
-            <a href="#" class="nav-link" onclick="showPage('home'); toggleMobileMenu()">Home</a>
-            <a href="#" class="nav-link" onclick="showPage('tutorials'); toggleMobileMenu()">Tutorials</a>
-            <a href="#" class="nav-link" onclick="showPage('tools'); toggleMobileMenu()">AI Tools</a>
-            <a href="#" class="nav-link" onclick="showPage('news'); toggleMobileMenu()">AI News</a>
-            <a href="#" class="nav-link" onclick="showPage('about'); toggleMobileMenu()">About</a>
-            <a href="#" class="nav-link" onclick="showPage('contact'); toggleMobileMenu()">Contact</a>
-            <a href="https://www.youtube.com/@NeuroNovaLab-n" target="_blank" class="btn-primary justify-center">Subscribe on YouTube</a>
+        <div class="flex flex-col gap-6">
+            <a href="#" class="text-2xl font-semibold text-white hover:text-cyan-400 transition-colors" onclick="showPage('home'); toggleMobileMenu()">Home</a>
+            <a href="#" class="text-2xl font-semibold text-white hover:text-cyan-400 transition-colors" onclick="showPage('tutorials'); toggleMobileMenu()">Tutorials</a>
+            <a href="#" class="text-2xl font-semibold text-white hover:text-cyan-400 transition-colors" onclick="showPage('tools'); toggleMobileMenu()">AI Tools</a>
+            <a href="#" class="text-2xl font-semibold text-white hover:text-cyan-400 transition-colors" onclick="showPage('news'); toggleMobileMenu()">AI News</a>
+            <a href="#" class="text-2xl font-semibold text-white hover:text-cyan-400 transition-colors" onclick="showPage('about'); toggleMobileMenu()">About</a>
+            <a href="#" class="text-2xl font-semibold text-white hover:text-cyan-400 transition-colors" onclick="showPage('contact'); toggleMobileMenu()">Contact</a>
+            <div class="pt-6 border-t border-gray-800">
+                <a href="https://www.youtube.com/@NeuroNovaLab-n" target="_blank" class="btn-primary justify-center text-lg">Subscribe on YouTube</a>
+            </div>
         </div>
     </div>
     
@@ -626,17 +754,17 @@
         <!-- Hero Section -->
         <div class="hero">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <div class="max-w-2xl">
+                <div class="max-w-2xl text-center md:text-left">
                     <div class="reveal">
                         <span class="category-badge mb-4">AI Education Platform</span>
                     </div>
                     <h1 class="hero-title reveal">
                         <span class="gradient-text">Explore the Future of AI & Automation</span>
                     </h1>
-                    <p class="text-lg text-gray-400 mb-8 reveal" style="transition-delay: 0.1s;">
+                    <p class="text-base md:text-lg text-gray-400 mb-8 reveal" style="transition-delay: 0.1s;">
                         Learn AI tools, automation skills, and the latest AI updates in a simple and beginner-friendly way. Join thousands of students and creators mastering the future of technology.
                     </p>
-                    <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 0.2s;">
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4 reveal justify-center md:justify-start" style="transition-delay: 0.2s;">
                         <a href="#" class="btn-primary" onclick="showPage('tutorials')">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polygon points="5 3 19 12 5 21 5 3"/>
@@ -708,30 +836,30 @@
         </div>
         
         <!-- Latest Videos Section -->
-        <section class="py-20 px-6">
+        <section class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">Latest Content</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-4">Latest Video Tutorials</h2>
+                    <h2 class="text-2xl md:text-4xl font-bold mt-4">Latest Video Tutorials</h2>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Stay updated with our newest AI tutorials and automation guides</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="videoGrid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="videoGrid">
                     <!-- Videos will be inserted here by JS -->
                 </div>
             </div>
         </section>
         
         <!-- Popular AI Tools Section -->
-        <section class="py-20 px-6 bg-gradient-to-b from-transparent to-rgba(0,0,0,0.3)">
+        <section class="py-16 md:py-20 px-4 md:px-6 bg-gradient-to-b from-transparent to-rgba(0,0,0,0.3)">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">AI Tools Directory</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-4">Popular AI Tools</h2>
+                    <h2 class="text-2xl md:text-4xl font-bold mt-4">Popular AI Tools</h2>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Discover the best AI tools to boost your productivity and creativity</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="toolsGrid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="toolsGrid">
                     <!-- Tools will be inserted here by JS -->
                 </div>
                 
@@ -742,26 +870,26 @@
         </section>
         
         <!-- Why NeuroNova Section -->
-        <section class="py-20 px-6">
+        <section class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">Why Choose Us</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-4">Why NeuroNova Labs?</h2>
+                    <h2 class="text-2xl md:text-4xl font-bold mt-4">Why NeuroNova Labs?</h2>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Your gateway to mastering AI and automation</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="featuresGrid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="featuresGrid">
                     <!-- Features will be inserted here by JS -->
                 </div>
             </div>
         </section>
         
         <!-- Newsletter Section -->
-        <section class="py-20 px-6">
+        <section class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="newsletter-section reveal">
                     <div class="text-center">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-4">Stay Updated with AI Trends</h2>
+                        <h2 class="text-xl md:text-3xl font-bold mb-4">Stay Updated with AI Trends</h2>
                         <p class="text-gray-400 mb-6">Get weekly AI tutorials, tool recommendations, and news delivered to your inbox</p>
                         <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onsubmit="handleNewsletter(event)">
                             <input type="email" placeholder="Enter your email" class="form-input flex-1" required>
@@ -775,11 +903,11 @@
     
     <!-- TUTORIALS PAGE -->
     <section class="page-section" id="tutorials">
-        <div class="py-20 px-6">
+        <div class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">Learn AI</span>
-                    <h1 class="text-4xl md:text-5xl font-bold mt-4">AI Tutorials & Guides</h1>
+                    <h1 class="text-3xl md:text-5xl font-bold mt-4">AI Tutorials & Guides</h1>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Master AI tools and automation with our comprehensive tutorials</p>
                 </div>
                 
@@ -791,7 +919,7 @@
                     <button class="btn-secondary tutorial-filter" data-category="beginner">Beginner Guides</button>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="tutorialsGrid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tutorialsGrid">
                     <!-- Tutorials will be inserted here by JS -->
                 </div>
             </div>
@@ -800,11 +928,11 @@
     
     <!-- AI TOOLS PAGE -->
     <section class="page-section" id="tools">
-        <div class="py-20 px-6">
+        <div class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">AI Resources</span>
-                    <h1 class="text-4xl md:text-5xl font-bold mt-4">AI Tools Directory</h1>
+                    <h1 class="text-3xl md:text-5xl font-bold mt-4">AI Tools Directory</h1>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Comprehensive directory of the best AI tools for every need</p>
                 </div>
                 
@@ -817,7 +945,7 @@
                     <button class="btn-secondary tool-filter" data-category="productivity">Productivity</button>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="allToolsGrid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="allToolsGrid">
                     <!-- Tools will be inserted here by JS -->
                 </div>
             </div>
@@ -826,15 +954,15 @@
     
     <!-- AI NEWS PAGE -->
     <section class="page-section" id="news">
-        <div class="py-20 px-6">
+        <div class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">Latest Updates</span>
-                    <h1 class="text-4xl md:text-5xl font-bold mt-4">AI News & Updates</h1>
+                    <h1 class="text-3xl md:text-5xl font-bold mt-4">AI News & Updates</h1>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Stay informed about the latest developments in artificial intelligence</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="newsGrid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="newsGrid">
                     <!-- News will be inserted here by JS -->
                 </div>
             </div>
@@ -843,57 +971,57 @@
     
     <!-- ABOUT PAGE -->
     <section class="page-section" id="about">
-        <div class="py-20 px-6">
+        <div class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">Our Story</span>
-                    <h1 class="text-4xl md:text-5xl font-bold mt-4">About NeuroNova Labs</h1>
+                    <h1 class="text-3xl md:text-5xl font-bold mt-4">About NeuroNova Labs</h1>
                 </div>
                 
                 <div class="glass-card reveal mb-12">
-                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
                         NeuroNova Labs is a platform dedicated to simplifying artificial intelligence and automation for students, creators, and beginners. We believe that AI should be accessible to everyone, not just tech experts.
                     </p>
-                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed mb-6">
                         Our mission is to help people understand and use AI tools to improve productivity, creativity, and learning. Through our YouTube channel and online resources, we provide clear, actionable tutorials that break down complex AI concepts into easy-to-follow steps.
                     </p>
-                    <p class="text-lg text-gray-300 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">
                         Whether you're a student looking to enhance your skills, a creator wanting to leverage AI for content, or a professional seeking to automate workflows, NeuroNova Labs is here to guide you on your AI journey.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-6 reveal">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 reveal">
                     <div class="glass-card text-center">
-                        <div class="text-4xl font-bold gradient-text mb-2">100+</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">100+</div>
                         <p class="text-gray-400">Video Tutorials</p>
                     </div>
                     <div class="glass-card text-center">
-                        <div class="text-4xl font-bold gradient-text mb-2">50K+</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">50K+</div>
                         <p class="text-gray-400">Students Reached</p>
                     </div>
                     <div class="glass-card text-center">
-                        <div class="text-4xl font-bold gradient-text mb-2">25+</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">25+</div>
                         <p class="text-gray-400">AI Tools Covered</p>
                     </div>
                 </div>
                 
                 <div class="mt-12 reveal">
-                    <h2 class="text-2xl font-bold mb-6 text-center">Our Values</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
+                    <h2 class="text-xl md:text-2xl font-bold mb-6 text-center">Our Values</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="glass-card">
-                            <h3 class="text-xl font-semibold text-cyan-400 mb-3">Accessibility First</h3>
+                            <h3 class="text-lg md:text-xl font-semibold text-cyan-400 mb-3">Accessibility First</h3>
                             <p class="text-gray-400">We make AI education available to everyone, regardless of technical background.</p>
                         </div>
                         <div class="glass-card">
-                            <h3 class="text-xl font-semibold text-purple-400 mb-3">Practical Learning</h3>
+                            <h3 class="text-lg md:text-xl font-semibold text-purple-400 mb-3">Practical Learning</h3>
                             <p class="text-gray-400">Every tutorial focuses on real-world applications you can use immediately.</p>
                         </div>
                         <div class="glass-card">
-                            <h3 class="text-xl font-semibold text-cyan-400 mb-3">Community Driven</h3>
+                            <h3 class="text-lg md:text-xl font-semibold text-cyan-400 mb-3">Community Driven</h3>
                             <p class="text-gray-400">We listen to our audience and create content that addresses their needs.</p>
                         </div>
                         <div class="glass-card">
-                            <h3 class="text-xl font-semibold text-purple-400 mb-3">Continuous Updates</h3>
+                            <h3 class="text-lg md:text-xl font-semibold text-purple-400 mb-3">Continuous Updates</h3>
                             <p class="text-gray-400">AI evolves fast, and so do we. Our content stays current with the latest developments.</p>
                         </div>
                     </div>
@@ -904,17 +1032,17 @@
     
     <!-- CONTACT PAGE -->
     <section class="page-section" id="contact">
-        <div class="py-20 px-6">
+        <div class="py-16 md:py-20 px-4 md:px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12 reveal">
                     <span class="category-badge">Get in Touch</span>
-                    <h1 class="text-4xl md:text-5xl font-bold mt-4">Contact Us</h1>
+                    <h1 class="text-3xl md:text-5xl font-bold mt-4">Contact Us</h1>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Have questions or suggestions? We'd love to hear from you.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="glass-card reveal">
-                        <h2 class="text-2xl font-bold mb-6">Send a Message</h2>
+                        <h2 class="text-xl md:text-2xl font-bold mb-6">Send a Message</h2>
                         <form onsubmit="handleContact(event)">
                             <div class="mb-4">
                                 <label class="block text-sm font-medium mb-2">Name</label>
@@ -934,7 +1062,7 @@
                     
                     <div class="reveal">
                         <div class="glass-card mb-6">
-                            <h2 class="text-2xl font-bold mb-6">Connect With Us</h2>
+                            <h2 class="text-xl md:text-2xl font-bold mb-6">Connect With Us</h2>
                             <p class="text-gray-400 mb-6">Follow us on social media to stay updated with the latest AI tutorials and news.</p>
                             <div class="flex gap-4">
                                 <a href="https://www.youtube.com/@NeuroNovaLab-n" target="_blank" class="social-link" aria-label="YouTube">
@@ -956,7 +1084,7 @@
                         </div>
                         
                         <div class="glass-card">
-                            <h3 class="text-xl font-semibold mb-3">Quick FAQ</h3>
+                            <h3 class="text-lg md:text-xl font-semibold mb-3">Quick FAQ</h3>
                             <div class="space-y-4">
                                 <div>
                                     <p class="font-medium text-cyan-400">Are your tutorials free?</p>
@@ -979,10 +1107,10 @@
     </section>
     
     <!-- Footer -->
-    <footer class="py-12 px-6">
+    <footer class="py-12 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2 md:col-span-1">
                     <a href="#" class="logo mb-4 inline-block" onclick="showPage('home')">
                         <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
                             <circle cx="20" cy="20" r="18" stroke="url(#footerGrad)" stroke-width="2"/>
@@ -995,7 +1123,7 @@
                                 </linearGradient>
                             </defs>
                         </svg>
-                        NeuroNova Labs
+                        <span>NeuroNova Labs</span>
                     </a>
                     <p class="text-gray-500 text-sm mt-4">Exploring the Future of AI & Automation</p>
                 </div>
@@ -1003,20 +1131,20 @@
                 <div>
                     <h4 class="font-semibold mb-4 text-cyan-400">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors" onclick="showPage('home')">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors" onclick="showPage('tutorials')">Tutorials</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors" onclick="showPage('tools')">AI Tools</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors" onclick="showPage('news')">AI News</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm" onclick="showPage('tutorials')">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm" onclick="showPage('tools')">AI Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm" onclick="showPage('news')">AI News</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4 text-purple-400">AI Resources</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">ChatGPT Guide</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">AI Image Tools</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Automation Basics</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors">Productivity Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-sm">ChatGPT Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-sm">AI Image Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-sm">Automation Basics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-400 transition-colors text-sm">Productivity Tools</a></li>
                     </ul>
                 </div>
                 
@@ -1163,22 +1291,22 @@
 
         const featuresData = [
             {
-                icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+                icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
                 title: "Beginner Friendly",
                 description: "Clear explanations and step-by-step tutorials designed for newcomers to AI."
             },
             {
-                icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
+                icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
                 title: "Automation Guides",
                 description: "Learn to automate workflows and save hours with practical automation tutorials."
             },
             {
-                icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>`,
+                icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>',
                 title: "AI News Updates",
                 description: "Stay informed about the latest AI developments, tools, and industry trends."
             },
             {
-                icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
+                icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
                 title: "Free Tools",
                 description: "Discover free and freemium AI tools to boost your productivity without breaking the bank."
             }
@@ -1327,8 +1455,10 @@
                 }
             }
             
-            // Create particles
-            for (let i = 0; i < 80; i++) {
+            // Reduce particle count on mobile for performance
+            const particleCount = window.innerWidth < 768 ? 40 : 80;
+            
+            for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
             
@@ -1340,23 +1470,25 @@
                     particle.draw();
                 });
                 
-                // Draw connections
-                particles.forEach(function(p1, i) {
-                    particles.slice(i + 1).forEach(function(p2) {
-                        const dx = p1.x - p2.x;
-                        const dy = p1.y - p2.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 120) {
-                            ctx.beginPath();
-                            ctx.moveTo(p1.x, p1.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.strokeStyle = 'rgba(0, 191, 255, ' + (0.1 * (1 - distance / 120)) + ')';
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
+                // Draw connections (desktop only for performance)
+                if (window.innerWidth >= 768) {
+                    particles.forEach(function(p1, i) {
+                        particles.slice(i + 1).forEach(function(p2) {
+                            const dx = p1.x - p2.x;
+                            const dy = p1.y - p2.y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < 120) {
+                                ctx.beginPath();
+                                ctx.moveTo(p1.x, p1.y);
+                                ctx.lineTo(p2.x, p2.y);
+                                ctx.strokeStyle = 'rgba(0, 191, 255, ' + (0.1 * (1 - distance / 120)) + ')';
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        });
                     });
-                });
+                }
                 
                 animationId = requestAnimationFrame(animate);
             }
@@ -1374,8 +1506,7 @@
             if (!grid) return;
             
             grid.innerHTML = videosData.slice(0, 3).map(function(video, index) {
-                return '\
-                    <div class="glass-card video-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
+                return '<div class="glass-card video-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
                         <div class="relative overflow-hidden rounded-xl mb-4">\
                             <img src="' + video.thumbnail + '" alt="' + video.title + '" class="video-thumbnail">\
                             <div class="play-overlay">\
@@ -1387,8 +1518,7 @@
                         <h3 class="font-semibold text-lg mb-2">' + video.title + '</h3>\
                         <p class="text-gray-400 text-sm mb-4">' + video.description + '</p>\
                         <a href="https://www.youtube.com/@NeuroNovaLab-n" target="_blank" class="btn-secondary text-sm">Watch Video</a>\
-                    </div>\
-                ';
+                    </div>';
             }).join('');
         }
 
@@ -1397,17 +1527,15 @@
             if (!grid) return;
             
             grid.innerHTML = toolsData.slice(0, 6).map(function(tool, index) {
-                return '\
-                    <div class="glass-card tool-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
+                return '<div class="glass-card tool-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
                         <div class="tool-logo" style="background: linear-gradient(135deg, ' + tool.color + '33, ' + tool.color + '22);">\
                             <span style="color: ' + tool.color + '">' + tool.logo + '</span>\
                         </div>\
                         <div class="flex-1">\
                             <h3 class="font-semibold mb-1">' + tool.name + '</h3>\
-                            <p class="text-gray-400 text-sm">' + tool.description.substring(0, 60) + '...</p>\
+                            <p class="text-gray-400 text-sm line-clamp-2">' + tool.description + '</p>\
                         </div>\
-                    </div>\
-                ';
+                    </div>';
             }).join('');
         }
 
@@ -1416,8 +1544,7 @@
             if (!grid) return;
             
             grid.innerHTML = toolsData.map(function(tool, index) {
-                return '\
-                    <div class="glass-card reveal tool-item" data-category="' + tool.category + '" style="transition-delay: ' + (index * 0.05) + 's;">\
+                return '<div class="glass-card reveal tool-item" data-category="' + tool.category + '" style="transition-delay: ' + (index * 0.05) + 's;">\
                         <div class="flex items-center gap-3 mb-4">\
                             <div class="tool-logo" style="background: linear-gradient(135deg, ' + tool.color + '33, ' + tool.color + '22);">\
                                 <span style="color: ' + tool.color + '">' + tool.logo + '</span>\
@@ -1428,12 +1555,11 @@
                             </div>\
                         </div>\
                         <p class="text-gray-400 mb-4">' + tool.description + '</p>\
-                        <div class="flex gap-2">\
+                        <div class="flex flex-col sm:flex-row gap-2">\
                             <a href="#" class="btn-secondary text-sm flex-1 text-center">Visit Tool</a>\
                             <a href="https://www.youtube.com/@NeuroNovaLab-n" target="_blank" class="btn-primary text-sm flex-1 text-center">Tutorial</a>\
                         </div>\
-                    </div>\
-                ';
+                    </div>';
             }).join('');
         }
 
@@ -1442,13 +1568,11 @@
             if (!grid) return;
             
             grid.innerHTML = featuresData.map(function(feature, index) {
-                return '\
-                    <div class="glass-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
+                return '<div class="glass-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
                         <div class="feature-icon">' + feature.icon + '</div>\
                         <h3 class="font-semibold text-lg mb-2">' + feature.title + '</h3>\
                         <p class="text-gray-400 text-sm">' + feature.description + '</p>\
-                    </div>\
-                ';
+                    </div>';
             }).join('');
         }
 
@@ -1457,15 +1581,13 @@
             if (!grid) return;
             
             grid.innerHTML = newsData.map(function(news, index) {
-                return '\
-                    <div class="glass-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
+                return '<div class="glass-card reveal" style="transition-delay: ' + (index * 0.1) + 's;">\
                         <img src="' + news.image + '" alt="' + news.title + '" class="news-image">\
                         <span class="text-xs text-cyan-400">' + news.date + '</span>\
                         <h3 class="font-semibold text-lg mt-2 mb-2">' + news.title + '</h3>\
                         <p class="text-gray-400 text-sm mb-4">' + news.summary + '</p>\
                         <a href="#" class="btn-secondary text-sm">Read More</a>\
-                    </div>\
-                ';
+                    </div>';
             }).join('');
         }
 
@@ -1474,8 +1596,7 @@
             if (!grid) return;
             
             grid.innerHTML = tutorialsData.map(function(tutorial, index) {
-                return '\
-                    <div class="glass-card video-card reveal tutorial-item" data-category="' + tutorial.category + '" style="transition-delay: ' + (index * 0.05) + 's;">\
+                return '<div class="glass-card video-card reveal tutorial-item" data-category="' + tutorial.category + '" style="transition-delay: ' + (index * 0.05) + 's;">\
                         <div class="relative overflow-hidden rounded-xl mb-4">\
                             <img src="' + tutorial.thumbnail + '" alt="' + tutorial.title + '" class="video-thumbnail">\
                             <div class="play-overlay">\
@@ -1488,8 +1609,7 @@
                         <h3 class="font-semibold text-lg mt-2 mb-2">' + tutorial.title + '</h3>\
                         <p class="text-gray-400 text-sm mb-4">' + tutorial.description + '</p>\
                         <a href="https://www.youtube.com/@NeuroNovaLab-n" target="_blank" class="btn-primary text-sm">Watch Tutorial</a>\
-                    </div>\
-                ';
+                    </div>';
             }).join('');
         }
 
@@ -1527,8 +1647,21 @@
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            const body = document.body;
+
             if (menu) {
                 menu.classList.toggle('show');
+            }
+            if (hamburger) {
+                hamburger.classList.toggle('active');
+            }
+            
+            // Prevent body scroll when menu is open
+            if(menu.classList.contains('show')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
             }
         }
 
